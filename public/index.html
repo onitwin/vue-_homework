@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Homework</title>
+    <link href="./css/stylesheet.css" rel="stylesheet">
+    <script src="./js/bundle.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 id='main-heading'>Task Manager</h1>
+
+      <form v-on:submit.prevent="saveNewTask">
+        <label for="new-task">Add New Task</label>
+        <input id="new-task" type="text" v-model="newTask">
+        <br>
+        <h2>Priority:</h2>
+        <label for="red">Red</label>
+        <input type="radio" id="red" value="red" v-model="priority">
+        <label for="amber">Amber</label>
+        <input type="radio" id="amber" value="amber" v-model="priority">
+        <label for="green">Green</label>
+        <input type="radio" id="green" value="green" v-model="priority">
+        <br>
+        <input type="submit" value="Save New Task"/>
+      </form>
+
+      <ul>
+        <li v-for="(task) in todo" v-bind:class="task.priority">
+        <span>{{task.task}}</span>
+        </li>
+      </ul>
+
+
+    </div>
+
+  </body>
+</html>
